@@ -23,17 +23,21 @@ Built as a portfolio project targeting NVIDIA DevTech (AI) roles. Demonstrates G
 
 > Run `benchmarks/benchmark.py` after connecting to a T4 runtime to reproduce.
 
-| Kernel | Size | CUDA (GB/s or TFLOPS) | PyTorch (GB/s or TFLOPS) | Speedup |
-|--------|------|-----------------------|--------------------------|---------|
-| Vector Add | 16M elements | — | — | — |
-| Tiled MatMul | 1024×1024 | — | — | — |
-| ReLU | 16M elements | — | — | — |
-| GELU | 16M elements | — | — | — |
-| Softmax | 8192×8192 | — | — | — |
-| Linear Layer (FP16) | 2048×2048 | — | — | — |
-| Attention | seq=512, d=64 | — | — | — |
+| Kernel | Size | CUDA (GB/s or TFLOPS) | PyTorch (GB/s or TFLOPS) |
+|--------|------|-----------------------|--------------------------|
+| Vector Add | 16M floats | — | — |
+| Naive MatMul | 2048³ | — | — |
+| Tiled MatMul (32×32) | 4096³ | — | — |
+| ReLU | 16M floats | — | — |
+| GELU | 16M floats | — | — |
+| SiLU | 16M floats | — | — |
+| Softmax naive | 4096×1024 | — | — |
+| Softmax stable (warp) | 4096×1024 | — | — |
+| Linear FP32 | 512×1024→2048 | — | — |
+| Linear FP16 | 512×1024→2048 | — | — |
+| Attention (causal) | seq=512, d=64 | — | — |
 
-*Table will be filled with real numbers after Colab run.*
+*Run `python benchmarks/benchmark.py` on a Colab T4 and paste real numbers here.*
 
 ---
 
