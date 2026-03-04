@@ -25,19 +25,19 @@ Built as a portfolio project targeting NVIDIA DevTech (AI) roles. Demonstrates G
 
 | Kernel | Size | CUDA (GB/s or TFLOPS) | PyTorch (GB/s or TFLOPS) |
 |--------|------|-----------------------|--------------------------|
-| Vector Add | 16M floats | — | — |
-| Naive MatMul | 2048³ | — | — |
+| Vector Add | 16M floats | — | **163.60 GB/s** |
+| Naive MatMul | 2048³ | — | **3.83 TFLOPS** |
 | Tiled MatMul (32×32) | 4096³ | **0.94 TFLOPS** | — |
-| ReLU | 16M floats | **245.39 GB/s** | — |
-| GELU | 16M floats | **250.02 GB/s** | — |
-| SiLU | 16M floats | **247.51 GB/s** | — |
+| ReLU | 16M floats | **245.39 GB/s** | **231.36 GB/s** |
+| GELU | 16M floats | **250.02 GB/s** | **230.80 GB/s** |
+| SiLU | 16M floats | **247.51 GB/s** | **231.44 GB/s** |
 | Softmax naive | 4096×1024 | **54.10 GB/s** | — |
-| Softmax stable (warp) | 4096×1024 | **192.35 GB/s** | — |
-| Linear FP32 | 512×1024→2048 | — | — |
-| Linear FP16 | 512×1024→2048 | — | — |
-| Attention (causal) | seq=512, d=64 | **0.17 TFLOPS** | — |
+| Softmax stable (warp) | 4096×1024 | **192.35 GB/s** | **212.16 GB/s** |
+| Linear FP32 | 512×1024→2048 | — | **5.31 TFLOPS** |
+| Linear FP16 | 512×1024→2048 | — | **34.85 TFLOPS** |
+| Attention (causal) | seq=512, d=64 | **0.17 TFLOPS** | **0.79 TFLOPS** |
 
-*Measured on NVIDIA T4 (Google Colab), CUDA 13.0, driver 580.82.07. Run `python benchmarks/benchmark.py` to reproduce.*
+*Measured on NVIDIA T4 (Google Colab), CUDA 13.0, driver 580.82.07. Run `python benchmarks/benchmark.py` and `python benchmarks/benchmark_torch.py` to reproduce.*
 
 ---
 
