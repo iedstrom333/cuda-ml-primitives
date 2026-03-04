@@ -27,17 +27,17 @@ Built as a portfolio project targeting NVIDIA DevTech (AI) roles. Demonstrates G
 |--------|------|-----------------------|--------------------------|
 | Vector Add | 16M floats | — | — |
 | Naive MatMul | 2048³ | — | — |
-| Tiled MatMul (32×32) | 4096³ | — | — |
-| ReLU | 16M floats | — | — |
-| GELU | 16M floats | — | — |
-| SiLU | 16M floats | — | — |
-| Softmax naive | 4096×1024 | — | — |
-| Softmax stable (warp) | 4096×1024 | — | — |
+| Tiled MatMul (32×32) | 4096³ | **0.94 TFLOPS** | — |
+| ReLU | 16M floats | **245.39 GB/s** | — |
+| GELU | 16M floats | **250.02 GB/s** | — |
+| SiLU | 16M floats | **247.51 GB/s** | — |
+| Softmax naive | 4096×1024 | **54.10 GB/s** | — |
+| Softmax stable (warp) | 4096×1024 | **192.35 GB/s** | — |
 | Linear FP32 | 512×1024→2048 | — | — |
 | Linear FP16 | 512×1024→2048 | — | — |
-| Attention (causal) | seq=512, d=64 | — | — |
+| Attention (causal) | seq=512, d=64 | **0.17 TFLOPS** | — |
 
-*Run `python benchmarks/benchmark.py` on a Colab T4 and paste real numbers here.*
+*Measured on NVIDIA T4 (Google Colab), CUDA 13.0, driver 580.82.07. Run `python benchmarks/benchmark.py` to reproduce.*
 
 ---
 
